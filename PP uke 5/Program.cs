@@ -11,22 +11,48 @@ trylleformler:
 vingardium leviosa (får en fjær til å fly)
 hokus pokus (fyrer av fyrverkerier)
 */
-namespace PP_uke_5 {
-    internal class Program
-    {
-       
-        public string pet;
-        public string wand;
-        public List<Character> inventory { get; set; } = new List<Character>();
 
-        static void Main() { var character = new Character("","",""); }
-        void InventoryItems()
+
+    string pet;
+    string wand;
+
+    List<String> inventory = new List<string>();
+
+    var character = new Character("", "");
+
+    Console.WriteLine("Velkommen til Harry Potter verden");
+    Console.WriteLine("-----------------------------------");
+
+    AddInventoryItems();
+    ShowInventory();
+    void MainMenu()
+    {
+        Console.WriteLine("1. Gå til Magibutikk");
+        Console.WriteLine("2. Prøv en trylleformel");
+        Console.WriteLine("3. Vis inventory");
+
+        var userInput = Console.ReadLine();
+
+        switch (userInput)
         {
-            inventory = new List<Character>
+        case "1":
+            Magibutikk();
+            break;
+        }
+
+    }
+
+    void AddInventoryItems()
+    {
+        inventory.Add("enhjørningstav");
+        inventory.Add("ugle");
+    }
+
+    void ShowInventory()
+    {
+        for (int i = 0; i < inventory.Count; i++)
         {
-        new Character{pet = "ugle", wand = "enhjørningstav", inventory = "Griffindor" },
-        new Character{wand = "enhjørningstav" },
-        };
+            Console.WriteLine(inventory[i]);
         }
     }
-}
+
