@@ -10,16 +10,19 @@ namespace PP_uke_5
     {
        public string Name { get; set; }
        public string House { get; set; }
-       public string Inventory { get; set; }
 
-        public string wand { get; set; }
-        public string pet { get; set; }
+       public List<String> Inventory { get; set; } 
 
-        public Character (string name, string house, string inventory)
+        //public string wand { get; set; }
+        //public string pet { get; set; }
+
+        public Character (string name, string house)
         {
             Name = name;
             House = house;
-            Inventory = inventory;
+
+            Inventory = new List<String>();
+      
         }
     }
 }
