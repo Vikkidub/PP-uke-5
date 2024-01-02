@@ -12,7 +12,9 @@ vingardium leviosa (får en fjær til å fly)
 hokus pokus (fyrer av fyrverkerier)
 */
 
-
+Run();
+void Run()
+{
     string pet;
     string wand;
 
@@ -23,8 +25,8 @@ hokus pokus (fyrer av fyrverkerier)
     Console.WriteLine("Velkommen til Harry Potter verden");
     Console.WriteLine("-----------------------------------");
 
-    AddInventoryItems();
-    ShowInventory();
+    MainMenu();
+    
     void MainMenu()
     {
         Console.WriteLine("1. Gå til Magibutikk");
@@ -35,11 +37,59 @@ hokus pokus (fyrer av fyrverkerier)
 
         switch (userInput)
         {
-        case "1":
-            Magibutikk();
-            break;
+            case "1":
+                MagiButikk();
+                break;
+            case "2":
+                Trylleformel();
+                break;
+                case "3": ShowInventory();
+                MainMenu();
+                break;
         }
 
+    }
+
+    void MagiButikk()
+    {
+        Console.WriteLine("Velkommen. Hva vil du kjøpe?");
+        Console.WriteLine("1. Super tryllestav. 2. Hedvig 3. Gå ut av butikken");
+        var input = Console.ReadLine();
+        switch (input)
+        {
+            case "1":
+                inventory.Add("Super tryllestav");
+                MagiButikk();
+                break;
+            case "2":
+                inventory.Add("Hedvig");
+                MagiButikk();
+                break;
+            case "3":
+                MainMenu();
+                break;
+
+            default:
+                Console.WriteLine("Velg et tall 1-2");
+                MagiButikk();
+                break;
+        }
+    }
+    void Trylleformel()
+    {
+        Console.WriteLine("Abra kadabra POFF!");
+        var input = Console.ReadLine();
+        switch (input)
+        {
+            case "Abra kadabra POFF!": 
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Du tryllet!");
+                MainMenu();
+                break;
+            default: Console.WriteLine("Gulvet er lava, prøv igjen senere");
+                Trylleformel();
+                break;
+        }
     }
 
     void AddInventoryItems()
@@ -56,3 +106,4 @@ hokus pokus (fyrer av fyrverkerier)
         }
     }
 
+}
